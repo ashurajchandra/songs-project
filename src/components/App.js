@@ -1,9 +1,15 @@
 
+import SongList from "./SongList";
 
 const App=()=> {
   return (
-    <div className="App">
-<h1>Hello Luv</h1>
+    <div className="ui container grid">
+<div className="ui row">
+  <div className="column eight wide">
+  <SongList/>
+  </div>
+</div>
+
     </div>
   );
 }

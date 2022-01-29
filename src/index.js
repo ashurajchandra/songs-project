@@ -5,7 +5,8 @@ import {createStore} from 'redux';
 
 import App from './components/App';
 import './index.css';
-import reducer from "./reducers"
+import reducer from "./reducers";
+
 
 ReactDOM.render(
   <React.StrictMode>
