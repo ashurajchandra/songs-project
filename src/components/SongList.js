@@ -1,15 +1,19 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {selectSong} from '../actions'
+import React, { useState } from 'react';
+import {useSelector,useDispatch} from 'react-redux';
+import {selectSong,removeSelectSong} from '../actions'
 
  function SongList(props) {
-    console.log("props",props);
+     const songList= useSelector((state)=>state.songList);
+    //  const isSelected=useSelector((state)=>state.isSelected);
+     const dispatch=useDispatch();
+     console.log("songlist props",songList);
+    //  console.log("songlist isSelected",isSelected);
   function renderList(){
-        return props.songs.map((song)=>{
+        return songList.map((song)=>{
             return(
                 <div className='item' key={song.title}>
                     <div className='right floated content'>
-                        <button className='ui button primary' onClick={()=>props.selectSong(song)}>
+                    <button className='ui button primary' onClick={()=>dispatch(selectSong(song))}>
                             Select
                         </button>
                     </div>
@@ -28,8 +32,4 @@ import {selectSong} from '../actions'
   );
 }
 
-const mapStateToProps =state=>{
-    console.log("state",state);
-return {songs:state.songs}
-}
-export default connect(mapStateToProps,{selectSong})(SongList)
+export default SongList;
