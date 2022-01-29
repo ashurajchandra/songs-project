@@ -1,6 +1,6 @@
-
+import { combineReducers } from 'redux'
 //creating list of songs data
-const SongListReducer = ()=>{
+const SongsListReducer = ()=>{
     return [
         {title:'No Scrubs', duration: '4:05'},
         {title: 'Macarena', duration: '2:30'},
@@ -15,3 +15,8 @@ const SelectedSongReducer = (selectedSong=null, action)=>{
     }
     return selectedSong;
 };
+
+export default combineReducers({
+    songs:SongsListReducer,
+    selectedSong:SelectedSongReducer
+})
